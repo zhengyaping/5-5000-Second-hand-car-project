@@ -1,0 +1,40 @@
+{
+  	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+ 	},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"rules": {
+		"quotes": [2, "single"],
+		"no-extra-semi" : [2],
+		"no-extra-parens" : [2],
+		"no-empty" : [2],
+		"no-use-before-define" : [2],
+		"complexity" : [2, 10],
+		"comma-dangle" : [2],
+		"no-global-assign" : [2],
+		"no-var" : [2],
+		"no-const-assign" : [2],
+		"no-class-assign" : [2],
+		"no-dupe-args" : [2],
+		"no-sparse-arrays" : [2],
+		"no-multi-spaces" : [2],
+		"block-scoped-var" : [2],
+		"no-lone-blocks" : [2],
+		"no-loop-func" : [2],
+		"no-sequences" : [2],
+		"no-return-assign" : [2],
+		"no-redeclare" : [2],
+		"space-infix-ops" : [2],
+		"semi" : [2],
+		"no-unused-vars" : [0],
+		"array-bracket-spacing": [2, "never"],
+		"comma-spacing": [2, {"before": false, "after": true}],
+		"key-spacing": [2, { "beforeColon": false, "afterColon": true }]
+	}
+}
