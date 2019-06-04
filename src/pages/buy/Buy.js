@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import SideBarLayout from '../../layouts/SideBarLayout';
-import { Table, Checkbox } from 'antd';
+import { Table } from 'antd';
 import { connect } from 'dva';
 import Fuxuankuang from './Fuxuankuang';
 import Huadongtiao from './Huadongtiao';
 import Shaixuantab from './Shaixuantab';
-
-const CheckboxGroup = Checkbox.Group;
+import Riqishaixuan from './Riqishaixuan';
+import moment from 'moment';
 
 @connect(({ car }) => ({
     results: car.results,
@@ -38,6 +38,8 @@ class Buy extends Component {
             return <Fuxuankuang {...aaa} />;
         } else if (item.type === 'B') {
             return <Huadongtiao {...aaa} />;
+        } else if (item.type === 'C') {
+            return <Riqishaixuan {...aaa} />;
         }
     }
     render() {
@@ -62,17 +64,22 @@ class Buy extends Component {
             },
             {
                 k: 'price',
-                min: 10,
-                max: 20,
+                min: 0,
+                max: 120,
                 type: 'B',
                 chinese: '价格'
             },
             {
                 k: 'km',
-                min: 20000,
-                max: 30000,
+                min: 0,
+                max: 2000000,
                 type: 'B',
                 chinese: '公里数'
+            },
+            {
+                k: 'buydate',
+                type: 'C',
+                chinese: '购买日期'
             }
         ];
         return (
@@ -96,7 +103,17 @@ class Buy extends Component {
                         { key: 'series', dataIndex: 'series', title: '车系' },
                         { key: 'color', dataIndex: 'color', title: '颜色' },
                         { key: 'engine', dataIndex: 'engine', title: '发动机排量' },
-                        { key: 'exhaust', dataIndex: 'exhaust', title: '环保标准' }
+                        { key: 'price', dataIndex: 'price', title: '价格（万）' },
+                        { key: 'km', dataIndex: 'km', title: '公里数' },
+                        { key: 'exhaust', dataIndex: 'exhaust', title: '环保标准' },
+                        {
+                            key: 'buydate',
+                            dataIndex: 'buydate',
+                            title: '购买日期',
+                            render(v) {
+                                return <span>{moment(v).format('YYYY年MM月DD日')}</span>;
+                            }
+                        }
                     ]}
                     pagination={{
                         current: this.props.page,

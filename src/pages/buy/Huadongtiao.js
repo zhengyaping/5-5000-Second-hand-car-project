@@ -9,6 +9,12 @@ export default class Huadongtiao extends Component {
             v1: 0
         };
     }
+    componentWillReceiveProps(nextprops) {
+        this.setState({
+            v0: nextprops.v[0],
+            v1: nextprops.v[1]
+        });
+    }
     render() {
         const { min, max } = this.props.item;
         return (

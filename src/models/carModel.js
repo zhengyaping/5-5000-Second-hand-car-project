@@ -9,7 +9,7 @@ function* loadData(put, select) {
     filters.forEach(item => {
         if (item._type === 'A') {
             obj[item.k] = item.v.join('v');
-        } else if (item._type === 'B') {
+        } else if (item._type === 'B' || 'C') {
             obj[item.k] = item.v.join('to');
         }
     });
