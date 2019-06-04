@@ -1,0 +1,6 @@
+echo "# 5-5000-Second-hand-car-project" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zhengyaping/5-5000-Second-hand-car-project.git
+git push -u origin master

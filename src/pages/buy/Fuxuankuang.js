@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
-import { Slider, Row, Col } from 'antd';
+import { Checkbox, Row, Col } from 'antd';
 
-export default class Huadongtiao extends Component {
+const CheckboxGroup = Checkbox.Group;
+
+export default class Fuxuankuang extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            v0: 0,
-            v1: 0
-        };
+        this.state = {};
     }
     render() {
-        let { min, max } = this.props.item;
         return (
             <div>
                 <Row>
-                    <Col>
-                        <b>{this.props.item.chinese}</b>
+                    <Col span={2}>
+                        <b>{this.props.item.chinese}:</b>
                     </Col>
-                    <Col>
-                        <Slider
-                            range
-                            min={min}
-                            max={max}
-                            style={{ width: '300px' }}
-                            value={[this.state.v0, this.state.v1]}
+                    <Col span={22}>
+                        <CheckboxGroup
+                            options={this.props.item.alloptions}
+                            value={this.props.v}
                             onChange={v => {
                                 this.props.dispatch({
-                                    type: 'student/changefilters',
+                                    type: 'car/changefilters',
                                     k: this.props.item.k,
                                     v: v,
                                     _type: this.props.item.type,
